@@ -3,17 +3,20 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
 
+        pkgs-unstable = import nixpkgs-unstable { inherit system; };
+
         jdk = pkgs.openjdk17_headless;
 
-        metals = pkgs.metals.override { jre = jdk; };
+        metals = pkgs-unstable.metals.override { jre = jdk; };
 
         sbt = pkgs.sbt.override { jre = jdk; };
 
