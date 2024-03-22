@@ -37,7 +37,7 @@
           # Nix environment for development of this flake
           # Additionally pandoc is used for markdown support
           # See .envrc at the root of this project
-          nix = pkgs.mkShell { packages = with pkgs; [ nil nixfmt pandoc ]; };
+          nix = pkgs.mkShell { packages = with pkgs; [ nixd nixfmt pandoc ]; };
         };
       });
 }
