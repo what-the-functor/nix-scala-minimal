@@ -2,7 +2,7 @@
 
 A minimal Scala development environment as a Nix flake, based on:
 - OpenJDK 17
-- Metals 1.0.0
+- Metals 1.2.1
 - SBT
 - Scalafmt
 

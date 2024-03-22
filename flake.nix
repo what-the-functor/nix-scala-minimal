@@ -2,7 +2,7 @@
   description = "Minimal Scala development environment";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
@@ -16,7 +16,7 @@
 
         jdk = pkgs.openjdk17_headless;
 
-        metals = pkgs-unstable.metals.override { jre = jdk; };
+        metals = pkgs.metals.override { jre = jdk; };
 
         sbt = pkgs.sbt.override { jre = jdk; };
 
