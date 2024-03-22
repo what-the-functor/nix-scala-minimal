@@ -20,6 +20,8 @@
 
         sbt = pkgs.sbt.override { jre = jdk; };
 
+        scala-cli = pkgs-unstable.scala-cli.override { jre = jdk; };
+
         scalafmt = pkgs.scalafmt.override { jre = jdk; };
 
       in {
@@ -27,7 +29,7 @@
 
           # Default environment for Scala development
           default = pkgs.mkShell {
-            packages = [ jdk metals sbt scalafmt ];
+            packages = [ jdk metals sbt scala-cli scalafmt ];
 
             env.JAVA_HOME = jdk;
           };
