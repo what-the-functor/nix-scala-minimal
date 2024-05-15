@@ -16,7 +16,7 @@
 
         jdk = pkgs.openjdk17_headless;
 
-        metals = pkgs.metals.override { jre = jdk; };
+        metals = pkgs-unstable.metals.override { jre = jdk; };
 
         sbt = pkgs.sbt.override { jre = jdk; };
 
